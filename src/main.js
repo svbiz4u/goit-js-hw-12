@@ -68,8 +68,16 @@ form.addEventListener('submit', async event => {
     }
     renderGallery(images.hits);
     lightbox.refresh();
-  } catch (error) {
-    console.log(error);
+  } 
+  catch (error) {
+    // console.log(error);
+      iziToast.error({
+      title: 'Error',
+      message: error.message,
+      position: 'topRight'
+      });
+    
+
   } finally {
     hideLoader();
     form.reset();
@@ -102,7 +110,12 @@ loadMoreBtn.addEventListener('click', async () => {
     }
     loadMoreBtn.classList.remove('visually-hidden');
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+     iziToast.error({
+     title: 'Error',
+     message: error.message,
+     position: 'topRight'
+     });
   } finally {
     hideLoader();
   }
